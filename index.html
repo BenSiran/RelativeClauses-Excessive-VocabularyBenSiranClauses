@@ -463,8 +463,95 @@
         </div>
 
         <div class="submit-section">
-            <button class="btn" onclick="alert('Great work, Mohammad! Please review your answers and submit to Teacher Ben Siran.')">Submit Homework</button>
+            <div class="question">
+                <div class="question-text">Teacher's Email Address:</div>
+                <input type="email" id="teacherEmail" value="Benyamin.siran@usa.com" style="max-width: 400px; margin: 10px auto; display: block;">
+            </div>
+            <button class="btn" onclick="submitHomework()">Submit Homework via Email</button>
         </div>
     </div>
+
+    <script>
+        function submitHomework() {
+            const teacherEmail = document.getElementById('teacherEmail').value || 'teacher@example.com';
+            
+            // Collect all answers
+            let emailBody = "English Grammar & Vocabulary Homework%0D%0A";
+            emailBody += "Student: Mohammad%0D%0A";
+            emailBody += "Teacher: Ben Siran%0D%0A";
+            emailBody += "Date: " + new Date().toLocaleDateString() + "%0D%0A";
+            emailBody += "================================%0D%0A%0D%0A";
+
+            // Exercise 1
+            emailBody += "EXERCISE 1: Adverb Formation and Usage%0D%0A";
+            emailBody += "----------------------------------------%0D%0A";
+            const ex1Inputs = document.querySelectorAll('.exercise:nth-of-type(1) input[type="text"]');
+            emailBody += "1. Careful → " + (ex1Inputs[0].value || "[Not answered]") + "%0D%0A";
+            emailBody += "   Sentence: " + (ex1Inputs[1].value || "[Not answered]") + "%0D%0A%0D%0A";
+            emailBody += "2. Beautiful → " + (ex1Inputs[2].value || "[Not answered]") + "%0D%0A";
+            emailBody += "   Sentence: " + (ex1Inputs[3].value || "[Not answered]") + "%0D%0A%0D%0A";
+            emailBody += "3. Efficient → " + (ex1Inputs[4].value || "[Not answered]") + "%0D%0A";
+            emailBody += "   Sentence: " + (ex1Inputs[5].value || "[Not answered]") + "%0D%0A%0D%0A";
+            emailBody += "4. Passionate → " + (ex1Inputs[6].value || "[Not answered]") + "%0D%0A";
+            emailBody += "   Sentence: " + (ex1Inputs[7].value || "[Not answered]") + "%0D%0A%0D%0A";
+
+            // Exercise 2
+            emailBody += "EXERCISE 2: Prefix Practice%0D%0A";
+            emailBody += "--------------------------%0D%0A";
+            const ex2Selects = document.querySelectorAll('.exercise:nth-of-type(2) select');
+            emailBody += "1. " + (ex2Selects[0].value || "[Not answered]") + "%0D%0A";
+            emailBody += "2. " + (ex2Selects[1].value || "[Not answered]") + "%0D%0A";
+            emailBody += "3. " + (ex2Selects[2].value || "[Not answered]") + "%0D%0A";
+            emailBody += "4. " + (ex2Selects[3].value || "[Not answered]") + "%0D%0A%0D%0A";
+
+            // Exercise 3
+            emailBody += "EXERCISE 3: Vocabulary in Context%0D%0A";
+            emailBody += "---------------------------------%0D%0A";
+            const ex3Inputs = document.querySelectorAll('.exercise:nth-of-type(3) input[type="text"]');
+            emailBody += "1. " + (ex3Inputs[0].value || "[Not answered]") + "%0D%0A";
+            emailBody += "2. " + (ex3Inputs[1].value || "[Not answered]") + "%0D%0A";
+            emailBody += "3. " + (ex3Inputs[2].value || "[Not answered]") + "%0D%0A";
+            emailBody += "4. " + (ex3Inputs[3].value || "[Not answered]") + "%0D%0A";
+            emailBody += "5. " + (ex3Inputs[4].value || "[Not answered]") + "%0D%0A";
+            emailBody += "6. " + (ex3Inputs[5].value || "[Not answered]") + "%0D%0A%0D%0A";
+
+            // Exercise 4
+            emailBody += "EXERCISE 4: Defining Relative Clauses%0D%0A";
+            emailBody += "-------------------------------------%0D%0A";
+            const ex4Inputs = document.querySelectorAll('.exercise:nth-of-type(4) input[type="text"]');
+            emailBody += "1. " + (ex4Inputs[0].value || "[Not answered]") + "%0D%0A";
+            emailBody += "2. " + (ex4Inputs[1].value || "[Not answered]") + "%0D%0A";
+            emailBody += "3. " + (ex4Inputs[2].value || "[Not answered]") + "%0D%0A";
+            emailBody += "4. " + (ex4Inputs[3].value || "[Not answered]") + "%0D%0A%0D%0A";
+
+            // Exercise 5
+            emailBody += "EXERCISE 5: Non-Defining Relative Clauses%0D%0A";
+            emailBody += "-----------------------------------------%0D%0A";
+            const ex5Inputs = document.querySelectorAll('.exercise:nth-of-type(5) input[type="text"]');
+            emailBody += "1. " + (ex5Inputs[0].value || "[Not answered]") + "%0D%0A";
+            emailBody += "2. " + (ex5Inputs[1].value || "[Not answered]") + "%0D%0A";
+            emailBody += "3. " + (ex5Inputs[2].value || "[Not answered]") + "%0D%0A";
+            emailBody += "4. " + (ex5Inputs[3].value || "[Not answered]") + "%0D%0A%0D%0A";
+
+            // Exercise 6
+            emailBody += "EXERCISE 6: Phrasal Verbs%0D%0A";
+            emailBody += "-------------------------%0D%0A";
+            const ex6Inputs = document.querySelectorAll('.exercise:nth-of-type(6) input[type="text"]');
+            emailBody += "1. " + (ex6Inputs[0].value || "[Not answered]") + "%0D%0A";
+            emailBody += "2. " + (ex6Inputs[1].value || "[Not answered]") + "%0D%0A";
+            emailBody += "3. " + (ex6Inputs[2].value || "[Not answered]") + "%0D%0A";
+            emailBody += "4. " + (ex6Inputs[3].value || "[Not answered]") + "%0D%0A%0D%0A";
+
+            emailBody += "================================%0D%0A";
+            emailBody += "End of Homework";
+
+            // Create mailto link
+            const subject = "English Homework - Mohammad - " + new Date().toLocaleDateString();
+            const mailtoLink = `mailto:${teacherEmail}?subject=${encodeURIComponent(subject)}&body=${emailBody}`;
+
+            // Open email client
+            window.location.href = mailtoLink;
+        }
+    </script>
 </body>
-  </html>
+</html>
