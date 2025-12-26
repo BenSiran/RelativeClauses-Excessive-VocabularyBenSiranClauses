@@ -1,1 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Homework - Mohammad</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #0a2540 0%, #1a4d5c 100%);
+            color: #e8e8e8;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(20, 40, 60, 0.9);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(218, 165, 32, 0.3);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid goldenrod;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            background: radial-gradient(circle, #1a4d5c 0%, #0a2540 100%);
+            border-radius: 50%;
+            border: 4px solid goldenrod;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(218, 165, 32, 0.4);
+        }
+
+        .logo-text {
+            font-size: 48px;
+            font-weight: bold;
+            color: goldenrod;
+            font-family: 'Brush Script MT', cursive;
+        }
+
+        h1 {
+            color: goldenrod;
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .student-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 20px;
+            font-size: 1.1em;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-label {
+            color: goldenrod;
+            font-weight: bold;
+        }
+
+        .exercise {
+            background: rgba(26, 77, 92, 0.4);
+            border-left: 5px solid goldenrod;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .exercise:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(218, 165, 32, 0.3);
+        }
+
+        .exercise h2 {
+            color: goldenrod;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .exercise-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: goldenrod;
+            color: #0a2540;
+            border-radius: 50%;
+            font-weight: bold;
+        }
+
+        .question {
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(10, 37, 64, 0.6);
+            border-radius: 8px;
+        }
+
+        .question-text {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            color: #f0f0f0;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(218, 165, 32, 0.4);
+            border-radius: 8px;
+            color: white;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: goldenrod;
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 15px rgba(218, 165, 32, 0.3);
+        }
+
+        .btn {
+            background: linear-gradient(135deg, goldenrod 0%, #daa520 100%);
+            color: #0a2540;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(218, 165, 32, 0.4);
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(218, 165, 32, 0.6);
+        }
+
+        .btn:active {
+            transform: translateY(-1px);
+        }
+
+        .submit-section {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 3px solid goldenrod;
+        }
+
+        select {
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(218, 165, 32, 0.4);
+            border-radius: 8px;
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: goldenrod;
+        }
+
+        option {
+            background: #1a4d5c;
+            color: white;
+        }
+
+        .instructions {
+            background: rgba(218, 165, 32, 0.1);
+            border: 2px solid goldenrod;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .student-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <div class="logo-text">BS</div>
+            </div>
+            <h1>English Grammar & Vocabulary</h1>
+            <div class="student-info">
+                <div class="info-item">
+                    <span class="info-label">Student:</span>
+                    <span>Mohammad</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Teacher:</span>
+                    <span>Ben Siran</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Exercise 1 -->
+        <div class="exercise">
+            <h2><span class="exercise-number">1</span> Adverb Formation and Usage</h2>
+            <div class="instructions">Convert these adjectives to adverbs and create sentences.</div>
+            
+            <div class="question">
+                <div class="question-text">1. Careful → <input type="text" placeholder="Write the adverb here" style="width: 200px; display: inline-block;"></div>
+                <div style="margin-top: 10px;">Sentence about studying:</div>
+                <input type="text" placeholder="Write your sentence here">
+            </div>
+
+            <div class="question">
+                <div class="question-text">2. Beautiful → <input type="text" placeholder="Write the adverb here" style="width: 200px; display: inline-block;"></div>
+                <div style="margin-top: 10px;">Sentence about singing:</div>
+                <input type="text" placeholder="Write your sentence here">
+            </div>
+
+            <div class="question">
+                <div class="question-text">3. Efficient → <input type="text" placeholder="Write the adverb here" style="width: 200px; display: inline-block;"></div>
+                <div style="margin-top: 10px;">Sentence about working:</div>
+                <input type="text" placeholder="Write your sentence here">
+            </div>
+
+            <div class="question">
+                <div class="question-text">4. Passionate → <input type="text" placeholder="Write the adverb here" style="width: 200px; display: inline-block;"></div>
+                <div style="margin-top: 10px;">Sentence about teaching:</div>
+                <input type="text" placeholder="Write your sentence here">
+            </div>
+        </div>
+
+        <!-- Exercise 2 -->
+        <div class="exercise">
+            <h2><span class="exercise-number">2</span> Prefix Practice (over- / under-)</h2>
+            <div class="instructions">Complete the sentences with the correct word.</div>
+            
+            <div class="question">
+                <div class="question-text">1. The restaurant was 
+                    <select>
+                        <option value="">Choose...</option>
+                        <option value="overpriced">overpriced</option>
+                        <option value="underpriced">underpriced</option>
+                        <option value="overestimated">overestimated</option>
+                        <option value="underestimated">underestimated</option>
+                    </select>
+                    so nobody came.
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">2. Don't 
+                    <select>
+                        <option value="">Choose...</option>
+                        <option value="overestimate">overestimate</option>
+                        <option value="underestimate">underestimate</option>
+                        <option value="overprice">overprice</option>
+                        <option value="underprice">underprice</option>
+                    </select>
+                    your abilities; you're very talented!
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">3. I'm sorry I'm late, I 
+                    <select>
+                        <option value="">Choose...</option>
+                        <option value="overslept">overslept</option>
+                        <option value="underslept">underslept</option>
+                        <option value="overestimated">overestimated</option>
+                    </select>
+                    this morning.
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">4. The antique vase was 
+                    <select>
+                        <option value="">Choose...</option>
+                        <option value="overpriced">overpriced</option>
+                        <option value="underpriced">underpriced</option>
+                        <option value="overestimated">overestimated</option>
+                    </select>
+                    at the auction and sold for very little.
+                </div>
+            </div>
+        </div>
+
+        <!-- Exercise 3 -->
+        <div class="exercise">
+            <h2><span class="exercise-number">3</span> Vocabulary in Context</h2>
+            <div class="instructions">Fill in the blanks with: far-fetched, unspoilt, elegant, glorious, spacious, excessive</div>
+            
+            <div class="question">
+                <div class="question-text">1. The mansion had a(n) 
+                    <input type="text" placeholder="answer" style="width: 200px; display: inline-block;">
+                    living room with high ceilings.
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">2. Her 
+                    <input type="text" placeholder="answer" style="width: 200px; display: inline-block;">
+                    dress and jewelry made her look like royalty.
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">3. The island's beaches remain completely 
+                    <input type="text" placeholder="answer" style="width: 200px; display: inline-block;">
+                    by tourism.
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">4. Your story about meeting aliens sounds completely 
+                    <input type="text" placeholder="answer" style="width: 200px; display: inline-block;">!
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">5. The empire experienced a(n) 
+                    <input type="text" placeholder="answer" style="width: 200px; display: inline-block;">
+                    period during the reign of that king.
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">6. His 
+                    <input type="text" placeholder="answer" style="width: 200px; display: inline-block;">
+                    spending on luxury cars led to financial problems.
+                </div>
+            </div>
+        </div>
+
+        <!-- Exercise 4 -->
+        <div class="exercise">
+            <h2><span class="exercise-number">4</span> Defining Relative Clauses</h2>
+            <div class="instructions">Combine these sentences using who, which, where, or that.</div>
+            
+            <div class="question">
+                <div class="question-text">1. Tokyo is a city. I visited it last summer.</div>
+                <input type="text" placeholder="Write the combined sentence here">
+            </div>
+
+            <div class="question">
+                <div class="question-text">2. She is a teacher. She inspires her students every day.</div>
+                <input type="text" placeholder="Write the combined sentence here">
+            </div>
+
+            <div class="question">
+                <div class="question-text">3. This is the camera. We use it for professional photography.</div>
+                <input type="text" placeholder="Write the combined sentence here">
+            </div>
+
+            <div class="question">
+                <div class="question-text">4. He is a person. He always tells the truth.</div>
+                <input type="text" placeholder="Write the combined sentence here">
+            </div>
+        </div>
+
+        <!-- Exercise 5 -->
+        <div class="exercise">
+            <h2><span class="exercise-number">5</span> Non-Defining Relative Clauses</h2>
+            <div class="instructions">Add extra information using non-defining relative clauses (remember the commas!).</div>
+            
+            <div class="question">
+                <div class="question-text">1. My brother lives in Canada now. (He studied engineering)</div>
+                <input type="text" placeholder="Write the sentence with non-defining clause">
+            </div>
+
+            <div class="question">
+                <div class="question-text">2. The Eiffel Tower attracts millions of tourists. (It was built in 1889)</div>
+                <input type="text" placeholder="Write the sentence with non-defining clause">
+            </div>
+
+            <div class="question">
+                <div class="question-text">3. Dr. Smith will give the presentation. (She is an expert in climate change)</div>
+                <input type="text" placeholder="Write the sentence with non-defining clause">
+            </div>
+
+            <div class="question">
+                <div class="question-text">4. We visited Isfahan last month. (Isfahan is famous for its architecture)</div>
+                <input type="text" placeholder="Write the sentence with non-defining clause">
+            </div>
+        </div>
+
+        <!-- Exercise 6 -->
+        <div class="exercise">
+            <h2><span class="exercise-number">6</span> Phrasal Verbs</h2>
+            <div class="instructions">Replace the underlined words with: deal with, cope with, revive, or seek.</div>
+            
+            <div class="question">
+                <div class="question-text">1. The company is trying to <u>bring back</u> its old reputation.</div>
+                <div style="margin-top: 10px;">Answer: 
+                    <input type="text" placeholder="Write your answer" style="width: 300px; display: inline-block;">
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">2. She is <u>looking for</u> new opportunities abroad.</div>
+                <div style="margin-top: 10px;">Answer: 
+                    <input type="text" placeholder="Write your answer" style="width: 300px; display: inline-block;">
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">3. How do you <u>handle</u> stress at work?</div>
+                <div style="margin-top: 10px;">Answer: 
+                    <input type="text" placeholder="Write your answer" style="width: 300px; display: inline-block;">
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">4. It's difficult to <u>manage</u> multiple projects at the same time.</div>
+                <div style="margin-top: 10px;">Answer: 
+                    <input type="text" placeholder="Write your answer" style="width: 300px; display: inline-block;">
+                </div>
+            </div>
+        </div>
+
+        <div class="submit-section">
+            <button class="btn" onclick="alert('Great work, Mohammad! Please review your answers and submit to Teacher Ben Siran.')">Submit Homework</button>
+        </div>
+    </div>
+</body>
+  </html>
